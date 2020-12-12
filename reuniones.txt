@@ -1,0 +1,35 @@
+# Reuniones
+
+## 12 de diciembre
+
+1) Procesamiento de bases de datos
+
+- Múltiples departamentos y de esos de desprenden encuestas transversales y longitudinales (panel o no)
+
+-  ENE: https://www.ine.cl/estadisticas/sociales/mercado-laboral/ocupacion-y-desocupacion
+
+- ESI: https://www.ine.cl/estadisticas/sociales/ingresos-y-gastos/encuesta-suplementaria-de-ingresos
+
+- EME: https://www.ine.cl/estadisticas/sociales/mercado-laboral/microemprendimiento
+
+
+
+2) Visualización de datos
+
+- blogdown
+- shinyApps
+
+3) Abrir los datos
+
+- Paquete
+
+## Por hacer
+
+- Estructura de carpeta
+  
+  - R: download
+  - data
+
+- Script ene que descargue todo lo que haya en la página (Joshua va a jugar)
+
+- Poner a estudiar ESI y EME. 
