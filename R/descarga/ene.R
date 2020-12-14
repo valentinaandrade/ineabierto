@@ -72,13 +72,37 @@ walk(fechas, function(fecha = sample(fechas, 1)){
 
 
 # union -------------------------------------------------------------------
-data <- readRDS("data/ene/2020-01-01.rds")
+# data <- readRDS("data/ene/2020-01-01.rds")
 
-data$nivel
-data$b17_mes
-data <- dir("data/ene/", full.names = TRUE) %>% 
-  str_subset("2019") %>% 
-  map_df(function(x) readRDS(x) %>% mutate_at(vars(contains("conglomerado")), as.numeric))
+anios <- dir("data/ene/", full.names = TRUE) %>% 
+  str_extract("[0-9]{4}") %>% 
+  unique()
 
 
+unir_anio <- function(anio = 2017) {
+  
+  dir("data/ene/", full.names = TRUE) %>%
+    str_subset(as.character(anio)) %>%
+    map_df(function(x) {
+      
+      message("\t", x)
+      
+      readRDS(x) %>% 
+        mutate_at(vars(contains("conglomerado")), as.numeric) %>% 
+        select(
+          everything()
+          # -b17_mes, 
+          # -e6_mes,
+          # 2016
+          # -b7_1, -b7_2, -b7_3, -b7_4, -b7_5, -b7_6
+        )
+    })
+  
+}
+
+data <- unir_anio(2018)
+
+data
+
+data2016 <- unir_anio(2016)
 
