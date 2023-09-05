@@ -42,9 +42,9 @@ walk(fechas, function(fecha = sample(fechas, 1)){
   trimestre <- str_c(meses[ mes + c(0, 1, 2)], collapse = "")
   
   url <- str_glue(
-    "https://www.ine.cl/docs/default-source/ocupacion-y-desocupacion/bbdd/{ anio }/{ ruta }/ene-{ anio }-{ mes }{ tri }.dta",
+    "https://www.ine.gob.cl/docs/default-source/ocupacion-y-desocupacion/bbdd/{ anio }/{ ruta }/ene-{ anio }-{ mes }-ond.dta",
     anio = year(fecha),
-    ruta = ifelse(year(fecha) <= 2019, "formato-stata", "stata"),
+    ruta = ifelse(year(fecha) <= 2019, "stata", "stata"),
     mes  = str_pad(month(fecha), width = 2, pad = "0"),
     tri  = case_when(
       between(year(fecha), 2018, 2019) ~ "",
@@ -55,10 +55,10 @@ walk(fechas, function(fecha = sample(fechas, 1)){
   
   if(fecha ==  ymd("2014-08-01")){
     message("Gracias INE!")
-    url <- "https://www.ine.cl/docs/default-source/ocupacion-y-desocupacion/bbdd/2014/formato-stata/ene-2014-08-nde.dta"
+    url <- "https://www.ine.gob.cl/docs/default-source/ocupacion-y-desocupacion/bbdd/2014/stata/ene-2014-08-nde.dta"
   }
-  
-  # download.file(
+  #"https://www.ine.gob.cl/docs/default-source/ocupacion-y-desocupacion/bbdd/2020/stata/ene-2020-11-ond.dta"
+  # "https://www.ine.gob.cl/docs/default-source/ocupacion-y-desocupacion/bbdd/2010/stata/ene-2010-02-efm.dta"
   #   url,
   #   archivo,
   #   method = "wininet"
